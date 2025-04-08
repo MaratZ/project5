@@ -82,3 +82,8 @@ django-admin startproject config .
 - Имеется список зависимостей.
 - Результат проверки Flake8 равен 100%, при исключении миграций.
 - Решение выложили на GitHub.
+
+
+Настройте celery. Запуск селери и воркер : celery -A config worker --beat --scheduler django --loglevel=info
+Запуск селери и воркер : celery -A config worker --beat --scheduler django --loglevel=info
+Как запускать с докер из консоли: Ввести команду для сборки образов и запуска контейнеров: docker-compose up -d —build
