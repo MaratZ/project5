@@ -1,4 +1,7 @@
 import os
+
+import sys
+
 from datetime import timedelta
 from pathlib import Path
 
@@ -16,7 +19,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['51.250.101.133', 'django', 'localhost', 'db', '127.0.0.1']
 
 
 # Application definition
@@ -32,7 +35,8 @@ INSTALLED_APPS = [
      "drf_yasg",
      "django_celery_beat",
      "users",
-     "habit"
+     "habit",
+     "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -81,15 +85,13 @@ REST_FRAMEWORK = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("NAME"),
-        "USER": os.getenv("USER"),
-        "PASSWORD": os.getenv("PASSWORD"),
-        "HOST": os.getenv("HOST"),
-        "PORT": os.getenv("PORT"),
-    }
+        "NAME": os.getenv("POSTGRES_DB"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST"),
+        "PORT": os.getenv("POSTGRES_PORT"),
 }
-
-
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
